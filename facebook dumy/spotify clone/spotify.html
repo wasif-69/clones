@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOTIFY</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Playwrite+IN&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Playwrite+IN&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@200..700&display=swap');
+
+    body {
+        background-color: black;
+    }
+
+    #navi {
+        background-color: black;
+        height: 7vh;
+        width: 100vw;
+        opacity: 0.9;
+        display: grid;
+        grid-template-columns: 5vw 5vw 37vw 9vw 6.5vw 10vw 5px 8.5vw 8vw 19vw;
+        grid-template-rows: 100px;
+        position: sticky;
+        top: 0px;
+        z-index: 2;
+
+    }
+
+    .logo_image {
+        height: 7vh;
+        width: 7vh;
+        padding: 0;
+    }
+
+    #home_icon {
+        height: 3.5vh;
+        width: 3.5vw;
+        margin-top: 16px;
+        margin-left: 10px;
+        transition: transform .15s ease-in 0s;
+
+
+    }
+
+    #search_icon {
+        height: 3vh;
+        width: 4vh;
+        border-radius: 90%;
+    }
+
+    #search {
+        background-color: rgb(34, 33, 33);
+        height: 5vh;
+        width: 30vw;
+        margin-top: 9px;
+        display: grid;
+        border-radius: 90px;
+        grid-template-columns: 5px 4vw 20vw 7vw 100px;
+        grid-template-rows: 10px 6vw 10vw 100px 100px;
+    }
+
+    #browse_icon {
+        height: 3vh;
+        width: 3vh;
+        margin-top: 8px;
+        margin-left: 20px;
+
+
+
+    }
+
+    #what_text {
+        /* font-family: "Playwrite IN", serif; */
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: antiquewhite;
+        font-size: 20px;
+        grid-row: 2/3;
+        grid-column: 3/4;
+
+    }
+
+    .search_icon {
+        grid-row: 2/3;
+        margin-left: 5px;
+
+    }
+
+    .browse_icon {
+        grid-row: 1/2;
+        grid-column: 4/5;
+
+    }
+
+    #premium {
+        font-family: "Playwrite IN", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        color: antiquewhite;
+        margin-top: 9px;
+
+    }
+
+    #sport {
+        font-family: "Playwrite IN", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        color: antiquewhite;
+        margin-top: 9px;
+    }
+
+    #download {
+        font-family: "Playwrite IN", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        color: antiquewhite;
+        margin-top: 9px;
+    }
+
+    #hori {
+        background-color: rgb(255, 255, 255);
+        height: 7vh;
+        width: 3px;
+        grid-column: 7/8;
+
+    }
+
+    #install {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        color: antiquewhite;
+        margin-left: 15px;
+        margin-top: 12px;
+
+    }
+
+    #login {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        color: antiquewhite;
+        margin-left: 25px;
+        margin-top: 12px;
+
+    }
+
+    #signup {
+        height: 5vh;
+        width: 9vw;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid black;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        color: rgb(0, 0, 0);
+        margin-top: 7px;
+    }
+
+    aside {
+        background-color: rgb(0, 0, 0);
+        height: 88vh;
+        width: 25vw;
+
+        display: grid;
+        position: sticky;
+        top: 7vh;
+
+
+    }
+
+    #aside_main {
+        background-color: rgb(39, 37, 37);
+        height: 87.5vh;
+        width: 25vw;
+        border-radius: 30px;
+        position: relative;
+        top: -8px;
+        left: -8px;
+        display: grid;
+        grid-template-columns: 20px 20vw;
+        grid-template-rows: 15px 6vh 5vh 22vh 20vh 7vh 18vh 5vh;
+        position: sticky;
+        top: 7vh;
+        border: 10px solid rgb(0, 0, 0);
+    }
+
+    #library {
+        height: 5vh;
+        width: 22vw;
+        border-radius: 30px;
+        background-color: aliceblue;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        display: grid;
+        grid-template-columns: 10px 49px 170px 40px;
+        grid-template-rows: 6px;
+    }
+
+    #libray_logo {
+        height: 3.5vh;
+        width: 3.5vw;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        margin-top: 1px;
+        transition: transform 0.1s ease-out 0s;
+
+
+    }
+
+    #library_text {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+
+    #plus {
+        height: 3vh;
+        width: 3vw;
+        grid-column: 4/5;
+        margin-top: 10px;
+
+    }
+
+    #playlist {
+        height: 17vh;
+        width: 22vw;
+        grid-column: 2/3;
+        grid-row: 4/5;
+        display: grid;
+        border-radius: 15px;
+        background-color: rgb(27, 27, 27);
+        grid-template-rows: 45px 20px 25px 50px;
+
+    }
+
+    #first {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 25px;
+        color: rgb(240, 240, 240);
+
+
+    }
+
+    #easy_playlist {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+
+    }
+
+    #create_playlist {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        height: 4.5vh;
+        width: 13vw;
+        border-radius: 40px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: 4/5;
+        margin-left: 60px;
+    }
+
+    #podcast {
+        height: 17vh;
+        width: 22vw;
+        grid-column: 2/3;
+        grid-row: 5/6;
+        display: grid;
+        border-radius: 15px;
+        background-color: rgb(27, 27, 27);
+        grid-template-rows: 45px 20px 25px 50px;
+    }
+
+    #follow_podcast {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+    }
+
+    #update_podcast {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+    }
+
+    #browse_podcast {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 22px;
+        height: 4.5vh;
+        width: 13vw;
+        border-radius: 40px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: 4/5;
+        margin-left: 60px;
+    }
+
+    #ethics {
+        height: 20vh;
+        width: 22vw;
+        /* border: 3px solid white; */
+        grid-row: 7/8;
+        display: grid;
+        grid-template-columns: 90px 90px 90px;
+        grid-template-rows: 35px 35px 35px;
+    }
+
+    .ethics_text {
+        font-family: "Playfair Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        color: rgb(255, 255, 255);
+        margin-left: 20px;
+
+
+    }
+
+    .english_style {
+        grid-row: 8/9;
+        grid-column: 2/3;
+        height: 3vh;
+        width: 8vw;
+        border: 2.5px solid white;
+        border-radius: 90px;
+        display: grid;
+        grid-template-columns: 10px 60px 20px;
+        transition: border 0.2s ease-in-out 0s;
+
+    }
+
+
+    #english_text {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        color: aliceblue;
+        grid-column: 2/3;
+    }
+
+    #browse {
+        height: 2.5vh;
+        width: 2.5vh;
+        grid-column: 3/4;
+        margin-top: 0.8px;
+    }
+
+    main {
+        background-color: rgb(34, 33, 33);
+        height: 160vh;
+        width: 71vw;
+        position: relative;
+        top: -781px;
+        left: 343px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-rows: 32vh 32vh 32vh 32vh;
+
+    }
+
+    .collection {
+        height: 30vh;
+        width: 70vw;
+        display: grid;
+        grid-template-columns: 20px 300px 500px 100px;
+        grid-template-rows: 10px 40px 230px;
+    }
+
+    .text_in_head {
+        font-family: "DM Serif Text", serif;
+        font-weight: 500;
+        font-style: normal;
+        color: aliceblue;
+        font-size: 25px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .text_in_show {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        color: rgb(236, 244, 250);
+        grid-column: 4/5;
+        grid-row: 2/3;
+    }
+
+    .album {
+        height: 25vh;
+        width: 98vh;
+        grid-row: 3/4;
+        grid-column: 2/5;
+        margin-top: 5px;
+        display: flex;
+    }
+
+    .song {
+        width: 20vw;
+        display: grid;
+        grid-template-rows: 10px 150px 30px 20px;
+    }
+
+    .text_heading {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: rgb(219, 213, 213);
+        font-size: 20px;
+        grid-row: 3/4;
+    }
+
+    .text_small {
+        font-family: "Oswald", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: rgb(163, 157, 157);
+        grid-row: 4/5;
+    }
+
+    .image_artist {
+        height: 17.5vh;
+        width: 10vw;
+        border-radius: 30px;
+
+    }
+
+    .wasif {
+        height: 17vh;
+        width: 17vh;
+        border-radius: 30px;
+    }
+
+    /* classes and ids for java script */
+
+
+    .logo_image_hover {
+        transform: scale(1.15);
+        transition: transform 0.5s ease 0s;
+    }
+
+    .home_transition {
+        transform: scale(1.4);
+        transition: transform 0.2s ease-in-out 0s;
+    }
+
+    .search_hower {
+        border: 1px solid white;
+        transition: border 0.4s ease-in-out 0s;
+
+
+    }
+
+    .type_anything {
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: antiquewhite;
+        font-size: 20px;
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+
+    .transition_all {
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out 0s;
+
+    }
+
+    .library_logo_transition {
+        transform: scale(1.4);
+        transition: transform 0.2s ease-in-out 0s;
+    }
+
+    .library_text_transition {
+        color: rgb(209, 209, 209);
+        transition: color 0.2s ease-in-out 0s;
+    }
+
+    .english_transition {
+        grid-row: 8/9;
+        grid-column: 2/3;
+        height: 3vh;
+        width: 8vw;
+        border-radius: 90px;
+        display: grid;
+        grid-template-columns: 10px 60px 20px;
+        border: 3px solid white;
+        transition: border 0.2s ease-in-out 0s;
+    }
+
+    .block_transition {
+        background-color: rgb(101, 105, 107);
+        border-radius: 30px;
+        height: 27vh;
+        width: 13vw;
+        position: relative;
+        top: -220px;
+        left: -20px;
+        opacity: 0.23;
+
+
+
+    }
+
+    .image_tri {
+        height: 40px;
+        width: 40px;
+        transform: scale(0.9);
+        position: relative;
+        left: 10px;
+        animation: triangle_gi 0.4s cubic-bezier(0.11, 0.52, 0.17, 1.03) 0s 1 forwards;
+
+    }
+
+    @keyframes triangle_gi {
+        0% {
+            top: 200px;
+
+        }
+
+        20% {}
+
+        40% {}
+
+        60% {}
+
+        80% {}
+
+        100% {
+            top: 100px;
+        }
+
+    }
+</style>
+
+<body>
+
+    <!-- navigation tag -->
+    <nav class="navigation_bar" id="navi">
+        <div class="navigation_segmen" id="spotify_logo"><img src="logo.jpg" alt="wasif" id="logo" class="logo_image">
+        </div>
+        <div class="navigation_segmen"><img src="homeicon.jpeg" alt="" id="home_icon"></div>
+        <div class="navigation_segmen" id="search">
+            <div class="inside_search_bar search_icon"><img src="searchicon.png" alt="" id="search_icon"></div>
+            <div class="inside_search_bar" id="what_text">What Do You Want To Play?
+
+            </div>
+            <div class="inside_search_bar browse_icon"><img src="browseicon.jpg" alt="" id="browse_icon"></div>
+        </div>
+        <div class="navigation_segment" id="premium">premium</div>
+        <div class="navigation_segment" id="sport">Sport</div>
+        <div class="navigation_segment" id="download">Download</div>
+        <div id="hori"></div>
+        <div class="navigation_segment" id="install">Install app</div>
+        <div class="navigation_segment" id="login">Log In</div>
+        <div class="navigation_segment" id="signup">Sign up</div>
+    </nav>
+    <!-- navigation tag end -->
+    <!-- aside tag -->
+    <aside id="aside">
+        <aside id="aside_main">
+            <div class="aside_container" id="library">
+                <img src="library.png" alt="" id="libray_logo">
+                <div id="library_text"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Your Library...</div>
+                <img src="plus.jpg" alt="" id="plus">
+            </div>
+            <div class="aside_container" id="playlist">
+                <div id="first"> &nbsp; Create Your First Playlist</div>
+                <div id="easy_playlist"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It's Not easy we will help you</div>
+                <div id="create_playlist" class="one"> Create Playlist</div>
+
+            </div>
+            <div class="aside_container" id="podcast">
+                <div id="follow_podcast"> &nbsp; Let Find Some Podcast</div>
+                <div id="update_podcast"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will keep you update of new episode</div>
+                <div id="browse_podcast"> Browse Podcast</div>
+
+            </div>
+            <div class="aside_container" id="ethics">
+                <div class="ethics_text">Legal</div>
+                <div class="ethics_text">safety</div>
+                <div class="ethics_text">privacy</div>
+                <div class="ethics_text">cookies</div>
+                <div class="ethics_text">ADS</div>
+                <div class="ethics_text">Assessibility</div>
+                <div class="ethics_text" style="font-weight:bold; color: blanchedalmond;">Cookies </div>
+            </div>
+            <div class="aside_container english_style" id="english">
+                <div id="english_text">English</div>
+                <img src="browseicon.jpg" alt="" id="browse">
+
+            </div>
+        </aside>
+    </aside>
+    <!-- aside tag end -->
+    <!-- main tag -->
+    <main>
+        <div class="collection" id="popular_artist">
+            <div class="text_in_head">Popular Artists</div>
+            <div class="text_in_show">Show all</div>
+            <div class="album">
+                <div class="song">
+                    <img src="albums pics/artist/ab6761610000e5eb46444c5c2069fe5470bec996.jpg" alt="" class="wasif">
+                    <div class="text_heading">Nusrat khan</div>
+                    <div class="text_small">Artist</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/artist/ed-sheeran--1666953393-editorial-short-form-0.jpg" alt=""
+                        class="wasif">
+                    <div class="text_heading">ED Sehreen</div>
+                    <div class="text_small">Artist</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/artist/justin.webp" alt="" class="wasif">
+                    <div class="text_heading">Justin Biber</div>
+                    <div class="text_small">Artist</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/artist/seleena.jpg" alt="" class="wasif">
+                    <div class="text_heading">Selena Gomeez</div>
+                    <div class="text_small">Artist</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/artist/mickhel.jpg" alt="" class="wasif">
+                    <div class="text_heading">Micheal Jackshen</div>
+                    <div class="text_small">Artist</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="collection" id="popular_album">
+            <div class="text_in_head">Popular Album</div>
+            <div class="text_in_show">Show all</div>
+            <div class="album">
+                <div class="song">
+                    <img src="albums pics/album/diljit.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Jind Mahi</div>
+                    <div class="text_small">Diljit Singth</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/album/honey.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Glory</div>
+                    <div class="text_small">Yo Yo Honey Ji</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/album/nusrat.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Legend</div>
+                    <div class="text_small">Ali Khan</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/album/sehreen.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Divine</div>
+                    <div class="text_small">Ed Shereen</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/album/selena.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Staer Dance</div>
+                    <div class="text_small">Selena Gomez</div>
+                </div>
+            </div>
+        </div>
+        <div class="collection" id="radio">
+            <div class="text_in_head">Popular Radio</div>
+            <div class="text_in_show">Show all</div>
+            <div class="album">
+                <div class="song">
+                    <img src="albums pics/radio/arijit singth.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Arijit Singth</div>
+                    <div class="text_small">Radio</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/radio/arjun.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Arjun</div>
+                    <div class="text_small">Radio</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/radio/destro all monster.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Destroy all</div>
+                    <div class="text_small">Radio</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/radio/montreux.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Montreux</div>
+                    <div class="text_small">Radio</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/radio/popular monster.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Monster</div>
+                    <div class="text_small">Radio</div>
+                </div>
+            </div>
+        </div>
+        <div class="collection" id="feathered">
+            <div class="text_in_head">Feathered Chart</div>
+            <div class="text_in_show">Show all</div>
+            <div class="album">
+                <div class="song">
+                    <img src="albums pics/feathered/a3603936441_65.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Distant song</div>
+                    <div class="text_small">Feathered Lovers</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/feathered/size_m (1).jpg" alt="" class="image_artist">
+                    <div class="text_heading">To Love You</div>
+                    <div class="text_small">Ready</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/feathered/size_m (2).jpg" alt="" class="image_artist">
+                    <div class="text_heading">Until I</div>
+                    <div class="text_small">Found You</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/feathered/size_m (3).jpg" alt="" class="image_artist">
+                    <div class="text_heading">Addictef To You</div>
+                    <div class="text_small">Wasif Khalil</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/feathered/size_m.jpg" alt="" class="image_artist">
+                    <div class="text_heading">I cannot Replace You</div>
+                    <div class="text_small">Wasif chaudary</div>
+                </div>
+            </div>
+        </div>
+        <div class="collection" id="bed">
+            <div class="text_in_head">Get Ready For Text</div>
+            <div class="text_in_show">Show all</div>
+            <div class="album">
+                <div class="song">
+                    <img src="albums pics/bed/ab67616d00001e02bb47eb0858fec5b9a9f03edd.jpg" alt="" class="image_artist">
+                    <div class="text_heading">It is the End</div>
+                    <div class="text_small">With you</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/bed/ab67706c0000da84459994de86a007bedca0a977.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Time for Bed</div>
+                    <div class="text_small">Unkown</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/bed/ab67656300005f1f368ee6cc6a3df65684827c54.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Sleep Tight</div>
+                    <div class="text_small">Stories</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/bed/ab67656300005f1fb92c6814342cc930610ffde1.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Bed stories</div>
+                    <div class="text_small">Mr jim</div>
+                </div>
+                <div class="song">
+                    <img src="albums pics/bed/ab67656300005f1fd821fb2a4233438d9db48719.jpg" alt="" class="image_artist">
+                    <div class="text_heading">Sleep tight</div>
+                    <div class="text_small"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        console.log("hello world how are you")
+        let logo_image = document.getElementById("logo")
+        console.log(logo_image)
+
+        logo_image.addEventListener("mouseover", () => {
+            logo_image.classList.remove("logo_imaje")
+            logo_image.classList.add("logo_image_hover");
+        });
+
+        // Remove hover effect on mouseleave
+        logo_image.addEventListener("mouseleave", () => {
+
+            logo_image.classList.remove("logo_image_hover");
+            logo_image.classList.add("logo_image");
+        });
+
+
+
+
+        let home_icon = document.getElementById("home_icon")
+        home_icon.addEventListener("mouseover", () => {
+            home_icon.classList.add("home_transition")
+        })
+        home_icon.addEventListener("mouseleave", () => {
+            home_icon.classList.remove("home_transition")
+            // home_icon.classList.add("home_transition_remove")
+        })
+
+
+        const type_anything = document.createElement("div")
+        type_anything.className = "type_anything"
+        type_anything.innerText = "Type Anything To search!"
+
+        let search = document.getElementById("search")
+        search.addEventListener("mouseover", () => {
+
+            search.classList.add("search_hower")
+            document.getElementById('what_text').style.display = 'none';
+            search.prepend(type_anything)
+        })
+        search.addEventListener("mouseleave", () => {
+            search.classList.remove("search_hower")
+            type_anything.remove()
+            if (type_anything)
+                type_anything.innerText = "Type Anything To search!"
+            {
+                type_anything.remove()
+                document.getElementById('what_text').style.display = '';
+            }
+        })
+        search.addEventListener("click", () => {
+            document.getElementById('what_text').style.display = 'none';
+
+
+            type_anything.innerText = "|"
+        })
+
+        let navigation_segment = document.getElementsByClassName("navigation_segment")
+        for (let index = 0; index < navigation_segment.length; index++) {
+            const element_nav = navigation_segment[index];
+            element_nav.addEventListener("mouseover", () => {
+                element_nav.classList.add("transition_all")
+            })
+            element_nav.addEventListener("mouseleave", () => {
+                element_nav.classList.remove("transition_all")
+            })
+        }
+
+        let libray_logo = document.getElementById("libray_logo")
+
+        libray_logo.addEventListener("mouseover", () => {
+            libray_logo.classList.add("library_logo_transition")
+        })
+        libray_logo.addEventListener("mouseleave", () => {
+            libray_logo.classList.remove("library_logo_transition")
+        })
+
+
+        let library_text = document.getElementById("library_text")
+        library_text.addEventListener("mouseover", () => {
+            library_text.classList.add("library_text_transition")
+        })
+        library_text.addEventListener("mouseleave", () => {
+            library_text.classList.remove("library_text_transition")
+            library_text.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Your Library..."
+            library_text.classList.remove("library_text_art")
+        })
+        library_text.addEventListener("click", () => {
+            library_text.classList.add("library_text_art")
+            library_text.innerText = "|"
+        })
+
+        let ethics_text = document.getElementsByClassName("ethics_text")
+        for (let index = 0; index < ethics_text.length; index++) {
+            const element = ethics_text[index];
+            element.addEventListener("mouseover", () => {
+                element.style.textDecoration = 'underline';
+            })
+            element.addEventListener("mouseleave", () => {
+                element.style.textDecoration = "";
+
+            })
+
+        }
+
+        let english = document.getElementById("english")
+        english.addEventListener("mouseover", () => {
+            english.classList.add("english_transition")
+            english.classList.remove("english_style")
+        })
+        english.addEventListener("mouseleave", () => {
+            english.classList.remove("english_transition")
+            english.classList.add("english_style")
+        })
+
+        const song = document.querySelectorAll(".song");
+
+        for (let index = 0; index < song.length; index++) {
+            const element = song[index];
+            let image_tri = document.createElement("img");
+            image_tri.className = "image_tri";
+            image_tri.src = "albums pics/arrow.png";
+            image_tri.style.display = "none";
+
+            let back_color = document.createElement("div");
+            back_color.className = "block_transition";
+            back_color.style.display = "none";
+
+            element.addEventListener("mouseover", () => {
+                image_tri.style.display = "";
+                element.append(image_tri);
+                back_color.style.display = "";
+                element.append(back_color);
+            });
+
+            element.addEventListener("mouseleave", () => {
+
+
+                image_tri.style.display = "none";
+                back_color.style.display = "none";
+
+            });
+        }
+
+        let create_playlist=document.getElementById("create_playlist")
+        create_playlist.addEventListener("click",()=>{
+            window.location.href = "http://localhost:3000/spotify/playlist";
+        })
+
+
+        const login=document.getElementById("browse_podcast")
+        login.addEventListener("click",()=>{
+            window.location.href = "http://localhost:3000/spotify/browse";
+        })
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

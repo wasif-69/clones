@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Friends</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light blue background */
+      color: #333; /* Black text */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .container {
+      background-color: #ffffff; /* White container */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #0077b6; /* Blue heading */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #0077b6; /* Blue labels */
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0077b6; /* Blue border */
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0077b6; /* Blue button */
+      color: #ffffff; /* White text */
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #023e8a; /* Darker blue on hover */
+    }
+
+    #friendsList {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f8ff; /* Light blue background */
+      border: 1px solid #0077b6; /* Blue border */
+      border-radius: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    #friendsList h2 {
+      color: #0077b6; /* Blue heading */
+      margin-bottom: 10px;
+    }
+
+    #friendsList ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #friendsList li {
+      background-color: #ffffff; /* White list items */
+      padding: 10px;
+      border: 1px solid #0077b6; /* Blue border */
+      border-radius: 5px;
+      margin-bottom: 10px;
+      color: #333; /* Black text */
+    }
+    #div{
+      height: 40px;
+      width: 20vw;
+      background-color: #0077b6;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      margin-top: 50px;
+
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Make Friends</h1>
+    <form id="friendForm">
+      <div class="form-group">
+        <label for="friendName">Friend's Name</label>
+        <input type="text" id="friendName" name="friendName" placeholder="Enter your friend's name" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="friendsList" class="hidden">
+    <h2>Your Friends</h2>
+    <ul id="friends"></ul>
+  </div>
+  <div id="div">Create group</div>
+
+  <script>
+let friendsList = []; // Array to store friend names
+
+let name=""
+
+
+
+
+// Handle form submission
+document.getElementById('friendForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent form submission
+
+  // Get the friend's name
+  const friendName = document.getElementById('friendName').value;
+
+  name=name+friendName+" "
+
+
+  // Add the friend's name to the array
+  friendsList.push(friendName);
+
+  // Create a new list item
+  const li = document.createElement('li');
+  li.textContent = friendName;
+
+  // Add the new friend to the list
+  document.getElementById('friends').appendChild(li);
+
+  // Show the friends list if it's hidden
+  document.getElementById('friendsList').classList.remove('hidden');
+
+  // Clear the input field
+  document.getElementById('friendForm').reset();
+});
+
+// Handle "Create group" button click
+document.getElementById('div').addEventListener('click', async function (e) {
+  e.preventDefault(); // Prevent default behavior
+
+  try {
+    const response = await fetch('http://localhost:5000/facebook/groups/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ friends: friendsList }), // Send the array of friends
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      document.getElementById('friendForm').reset(); // Clear the form
+      friendsList = []; // Clear the friends list array
+    } else {
+      throw new Error('Failed to save group');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to save group. Please try again.');
+  }
+});
+  </script>
+</body>
+</html>

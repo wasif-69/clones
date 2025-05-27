@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Podcast</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+    body {
+        background-color: black;
+        display: grid;
+        grid-template-columns: 18.5vw 50vw 25vw;
+        grid-template-rows: 15vh 70vh 10vh;
+    }
+
+    nav {
+        background-color: rgb(58, 56, 56);
+        height: 70vh;
+        width: 60vw;
+        border: 3px solid white;
+        border-radius: 40px;
+        grid-row: 2/3;
+        grid-column: 2/3;
+
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 50px 550px 300px;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px;
+
+    }
+
+    #songname_text {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 25px;
+        color: antiquewhite;
+        grid-row: 1/2;
+        grid-column: 2/3;
+        margin-left: 200px;
+        margin-top: 40px;
+    }
+
+    #songname {
+        height: 5vh;
+        width: 28vw;
+        border-radius: 30px;
+        border: 3px solid black;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        margin-left: 140px;
+    }
+
+    #artist_text {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 28px;
+        color: antiquewhite;
+        grid-row: 3/4;
+        grid-column: 2/3;
+        margin-left: 150px;
+    }
+
+    #artist {
+        height: 5vh;
+        width: 25vw;
+        border-radius: 30px;
+        border: 3px solid black;
+        grid-row: 4/5;
+        grid-column: 2/3;
+        margin-left: 165px;
+    }
+
+    #submit {
+        font-family: "DM Serif Text", serif;
+        font-weight: 1400;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 27px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 254, 254);
+        height: 5vh;
+        width: 10vw;
+        border-radius: 30px;
+        letter-spacing: 1.5px;
+        grid-row: 5/6;
+        grid-column: 3/4;
+        position: relative;
+        top: 106px;
+        left: -279px;
+
+    }
+</style>
+
+<body>
+    <nav>
+        <form id="form" action="/submit" method="post">
+            <!-- Text input for username -->
+            <label for="songname" id="songname_text">Enter the Song name:</label><br>
+            <input type="text" id="songname" name="songname" required>
+            <br><br>
+
+            <!-- Password input -->
+            <label for="artist" id="artist_text">Name of the person which did you wanted to listen podcast:</label><br>
+            <input type="text" id="artist" name="artist" required>
+            <br><br>
+
+            
+
+            <!-- Submit button -->
+            <input type="SUBMIT" value="SUBMIT" id="submit">
+        </form>
+    </nav>
+    <script>
+        document.getElementById('form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const songname = document.getElementById('songname').value;
+            const artist = document.getElementById('artist').value; // Corrected the id
+            
+
+            // Send data to the backend
+            try {
+                const response = await fetch('http://localhost:3000/spotify/browse/fill', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ songname,artist }) // Removed public and private
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert(data.message);
+                    document.getElementById('form').reset(); // Clear the form
+                } else {
+                    throw new Error('Failed to save song');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to save song. Please try again.');
+            }
+        });
+    </script>
+</body>
+
+</html>

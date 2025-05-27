@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Pakistan - Watch TV show</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .navigation {
+            height: 10vh;
+            width: 100%;
+            background-color: black;
+        }
+
+        #logo {
+            height: 167%;
+            width: 20%;
+            position: relative;
+            top: -30px;
+            left: 70px;
+
+        }
+
+        #sign_in_button {
+            height: 4vh;
+            width: 5vw;
+            background-color: red;
+            color: rgb(255, 255, 255);
+            border-radius: 12%;
+            align-content: center;
+            position: relative;
+            top: -120px;
+            left: 1163px;
+            font-weight: 1300;
+        }
+
+        #image_cover {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            top: 10px;
+            opacity: 0.3;
+
+
+        }
+
+        .image_cover {
+            top: -10px;
+            background-color: black;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .main {
+            display: flex;
+
+        }
+
+        .text {
+            font-size: 2.5vw;
+            font-weight: 1300;
+            position: relative;
+            top: -100px;
+            left: 100px;
+            display: inline-flex;
+            color: beige;
+        }
+
+        #one {
+            top: -838px;
+            left: 340px;
+            color: beige;
+            font-size: 70px;
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 55px;
+        }
+
+        #two {
+            top: -773px;
+            left: -165px;
+            color: beige;
+            font-size: 30px;
+        }
+
+        #three {
+            top: -789px;
+            left: 370px;
+            color: beige;
+            font-size: 20px;
+        }
+
+        #sign_in {
+            height: 4vh;
+            width: 30vw;
+            position: relative;
+            top: -764px;
+            left: 412px;
+            background-color: black;
+            opacity: 0.6;
+            border: 2px solid rgb(223, 204, 204);
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 2%;
+        }
+
+        .started {
+            height: 6vh;
+            width: 15vw;
+            position: relative;
+            top: -820px;
+            left: 828px;
+            background-color: red;
+            color: rgb(255, 255, 255);
+            border-radius: 5%;
+            align-content: center;
+            font-weight: 1300;
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+        }
+
+        .trending {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            position: relative;
+            top: -238px;
+            border: 3px double rgb(216, 208, 208);
+            display: grid;
+            grid-template-columns: 120px 30vw 500px;
+            grid-template-rows: 30px 10vh 350px 40vh;
+
+        }
+
+        .icons {
+            height: 10vh;
+            width: 30vw;
+            background-color: black;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        #Countary {
+            height: 5vh;
+            width: 10vw;
+            background-color: black;
+            color: rgb(255, 255, 255);
+            border-radius: 5%;
+            align-content: center;
+            font-weight: 1300;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+            border: 1px solid rgb(247, 247, 247);
+            margin-right: 10px;
+        }
+
+        #Types {
+            height: 5vh;
+            width: 10vw;
+            background-color: black;
+            color: rgb(255, 255, 255);
+            border-radius: 5%;
+            align-content: center;
+            font-weight: 1300;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+            border: 1px solid rgb(255, 255, 255);
+
+        }
+
+        .text_trending {
+            height: 10vh;
+            width: 100vw;
+            background-color: black;
+            position: relative;
+            display: flex;
+            align-items: center;
+            grid-column: 3/4;
+            grid-row: 2/3;
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+        }
+
+        .main_set {
+            display: grid;
+            grid-template-columns: 80PX 200PX 200PX 200PX 200PX;
+            grid-template-rows: 150PX 300PX 150PX 300PX;
+        }
+
+        .movies {
+            height: 300px;
+            width: 200px;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 10%;
+            margin-left: 80px;
+
+        }
+
+        #journey {
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+
+        #lost {
+            grid-row: 2/3;
+            grid-column: 3/4;
+        }
+
+        #damsel {
+            grid-row: 2/3;
+            grid-column: 4/5;
+        }
+
+        #bird {
+            grid-row: 2/3;
+            grid-column: 5/6;
+        }
+
+        .join {
+            height: 40vh;
+            width: 100vw;
+            grid-row: 4/5;
+            display: grid;
+            grid-template-columns: 80px 20vw 40PX 20vw 40px 20vw 40PX 20vw;
+            grid-template-rows: 100px 30vh 100px;
+        }
+
+        #text_ten {
+            height: 10vh;
+            width: 100vw;
+            background-color: black;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+            margin-left: 100px;
+        }
+
+        .reason_name {
+            color: rgb(173, 27, 27);
+            height: 30vh;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "DM Serif Text", serif;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 30px;
+            background-color: rgb(41, 38, 38);
+            border-radius: 15%;
+
+        }
+
+        #Enjoy {
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+
+        #download {
+            grid-row: 2/3;
+            grid-column: 4/5;
+        }
+
+        #watch {
+            grid-row: 2/3;
+            grid-column: 6/7;
+        }
+
+        #create {
+            grid-row: 2/3;
+            grid-column: 8/9;
+        }
+
+        .asked {
+            height: 10vh;
+            width: 100vw;
+            background-color: black;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 0.8;
+            font-style: bold;
+            margin-left: 100px;
+        }
+
+        .two {
+            height: 100vh;
+            width: 97.8vw;
+            margin-left: 50px;
+            display: grid;
+        }
+        .question{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            height: 12vh;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            border: 2px solid rgb(189, 54, 54);
+            font-size: 60px;
+            border-radius: 2%;
+
+            
+        }  
+        .faq{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            height: 5vh;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            font-size: 30px;
+            border-radius: 5%;
+
+        }
+        .help{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            height: 5vh;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            font-size: 30px;
+            border-radius: 5%;
+
+        }
+        .account{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            height: 5vh;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            font-size: 30px;
+            border-radius: 5%;
+
+        }
+        .media{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            height: 5vh;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            font-size: 30px;
+            border-radius: 5%;
+        }
+        .centents{
+            height: 40vh;
+            width: 22vw;
+            
+        }
+        footer{
+            height: 70vh;
+            width: 100vw;
+            background-color: rgb(245, 245, 245);
+            display: grid;
+            grid-template-columns:50px 34vh 34vh 34vh 34vh ;
+            grid-template-rows:30px 40vh 40vh 40vh;
+        }
+        #faq{
+            grid-row:2/3 ;
+            grid-column:2/3 ;
+        }
+        #help{
+            grid-row:2/3 ;
+            grid-column:3/4;
+        }
+        #account{
+            grid-row:2/3;
+            grid-column:4/5;
+        }
+        #media{
+            grid-row:2/3;
+            grid-column:5/6;
+        }
+    </style>
+    <nav class="navigation">
+        <span class="navigation_item" id="netflix_name"><img id="logo" src="assets/BrandAssets_Logos_01-Wordmark.jpg"
+                alt="Netflix logo"></span>
+        <div class="navigation_item" id="sign_in_button">&nbsp; Sign In</div>
+    </nav>
+    <main>
+        <div class="image_cover"><img id="image_cover" src="assets/netflix-monthly-releases.jpg" alt=""></div>
+        <div class="text" id="one"> &nbsp;&nbsp; Unlimited movies,<br> TV shows, and more</div>
+        <div class="text" id="two"> <br>Starts at Rs 250. Cancel anytime.</div>
+        <div class="text" id="three">Ready to watch? Enter your email to create or restart your membership</div>
+        <div class="sign_in"><input id="sign_in" type="text" name="username" placeholder="Email Address"></div>
+        <div class="started">&nbsp; Get started &nbsp;&nbsp;></div>
+    </main>
+    <main class="trending">
+        <div class="icons">
+            <select name="Countary" id="Countary">
+                <option value="Pakistan">&nbsp;&nbsp;&nbsp;&nbsp;Pakistan</option>
+                <option value="GLobal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GLobal</option>
+            </select>
+            <select name="Types" id="Types">
+                <option value="shows">&nbsp;&nbsp;&nbsp;TV shows</option>
+                <option value="Movies">&nbsp;&nbsp;&nbsp;Movies</option>
+            </select>
+        </div>
+        <div class="text_trending">
+            <h1> Trending Now</h1>
+        </div>
+        <div class="main_set">
+            <img class="movies" id="journey" src="assets/rBEevGHXumKAKqbrAAGqmG-A7hY70.jpeg" alt="">
+            <img class="movies" id="lost" src="assets/neMZH82Stu91d3iqvLdNQfqPPyl.webp" alt="">
+            <img class="movies" id="damsel"
+                src="assets/MV5BZTAzODc1ZjUtNGQwZS00YTc2LTliNzQtMDdlNzllNmU5Yzk4XkEyXkFqcGc@._V1_.jpg" alt="">
+            <img class="movies" id="bird"
+                src="assets/MV5BMjAzMTI1MjMyN15BMl5BanBnXkFtZTgwNzU5MTE2NjM@._V1_FMjpg_UX1000_.jpg" alt="">
+        </div>
+        <div class="join">
+            <div id="text_ten">More Reason To join</div>
+            <div class="reason_name" id="Enjoy">Enjoy on your TV</div>
+            <div class="reason_name" id="download">Download your <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shows
+            </div>
+            <div class="reason_name" id="watch">Watch everywhere</div>
+            <div class="reason_name" id="create">Create profiles for
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kids</div>
+        </div>
+    </main>
+    <div class="asked">Frequently Asked Question</div>
+    <main class="two">
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;What is Netflix</div>
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;How Can I Cancel</div>
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;How Many Does It Cost</div>
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;Does IT Is Good For Kids</div>
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;What Types Of Video</div>
+        <div class="question">&nbsp;&nbsp;&nbsp;&nbsp;Where I Can Watch</div>
+    </main>
+    <footer>
+        <div class="centents" id="faq">
+            <p class="faq">FAQ</p>
+            <p class="faq">Investor Relation</p>
+            <p class="faq">Privacy</p>
+            <p class="faq">Speed Tsdt</p>
+        </div>
+        <div class="centents" id="help">
+            <p class="help">Help Center</p>
+            <p class="help">Jobs</p>
+            <p class="help">Cookie Preference</p>
+            <p class="help">Legal Notices</p>
+        </div>
+        <div class="centents" id="account">
+            <p class="account">Account</p>
+            <p class="account">Ways to Watch</p>
+            <p class="account">Information</p>
+            <p class="account">Netflix Originals</p>
+        </div>
+        <div class="centents" id="media">
+            <p class="media">Media Center</p>
+            <p class="media">Terms of Use</p>
+            <p class="media">Contact Us</p>
+        </div>
+        
+    </footer>
+
+</body>
+
+</html>

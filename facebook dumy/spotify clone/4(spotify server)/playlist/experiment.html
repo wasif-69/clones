@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        background-color: black;
+        height: 40vh;
+        width: 40vw;
+
+    }
+    .was{
+        background-color: aliceblue;
+        border: 14px solid rgb(177, 16, 16);
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <script>
+        let a=document.getElementById("box")
+        a.addEventListener("mouseover",()=>{
+            a.classList.add("was")
+        })
+        a.addEventListener("mouseleave",()=>{
+            a.classList.remove("was")
+        })
+    </script>
+</body>
+</html>

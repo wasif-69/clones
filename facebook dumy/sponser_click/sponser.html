@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorship Form</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light blue background */
+      color: #333; /* Black text */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff; /* White container */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #0077b6; /* Blue heading */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #0077b6; /* Blue labels */
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"],
+    input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0077b6; /* Blue border */
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0077b6; /* Blue button */
+      color: #ffffff; /* White text */
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #023e8a; /* Darker blue on hover */
+    }
+
+    /* Output Styles */
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f8ff; /* Light blue background */
+      border: 1px solid #0077b6; /* Blue border */
+      border-radius: 5px;
+    }
+
+    #output h2 {
+      color: #0077b6; /* Blue heading */
+      margin-bottom: 10px;
+    }
+
+    .uploaded-image {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .output-link {
+      color: #0077b6; /* Blue link */
+      text-decoration: none;
+    }
+
+    .output-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sponsorship Form</h1>
+    <form id="sponsorForm">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter a brief description" required></textarea>
+      </div>
+
+      <!-- Link -->
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input type="url" id="link" name="link" placeholder="Enter a link (optional)">
+      </div>
+
+      <!-- Image Upload -->
+      <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Publish</button>
+    </form>
+
+    <!-- Display Submitted Data -->
+    <div id="output" class="hidden">
+      <h2>Submitted Information</h2>
+      <p><strong>Name:</strong> <span id="outputName"></span></p>
+      <p><strong>Description:</strong> <span id="outputDescription"></span></p>
+      <p><strong>Link:</strong> <a id="outputLink" href="#" target="_blank" class="output-link"></a></p>
+      <img id="outputImage" src="" alt="Uploaded Image" class="uploaded-image">
+    </div>
+  </div>
+
+  <img src="uploads/1741945002313.jpeg" alt="" height="100" width="100">
+
+  <script>
+    // Handle form submission
+document.getElementById('sponsorForm').addEventListener('submit', async function (e) {
+  e.preventDefault(); // Prevent form submission
+
+  // Get form values
+  const name = document.getElementById('name').value;
+  const description = document.getElementById('description').value;
+  const link = document.getElementById('link').value;
+  const image = document.getElementById('image').files[0];
+
+  // Display submitted data
+  document.getElementById('outputName').textContent = name;
+  document.getElementById('outputDescription').textContent = description;
+
+  // Display link if provided
+  const outputLink = document.getElementById('outputLink');
+  if (link) {
+    outputLink.href = link;
+    outputLink.textContent = link;
+  } else {
+    outputLink.textContent = "No link provided";
+  }
+
+  // Display uploaded image
+  const reader = new FileReader();
+  reader.onload = function (event) {
+    document.getElementById('outputImage').src = event.target.result;
+  };
+  reader.readAsDataURL(image);
+
+  // Show the output section
+  document.getElementById('output').classList.remove('hidden');
+
+  // Send data to the backend
+  try {
+    const formData = new FormData();
+formData.append('name', name);
+formData.append('description', description);
+formData.append('link', link);
+formData.append('image', image);
+
+const response = await fetch('http://localhost:5000/facebook/sponser/create', {
+  method: 'POST',
+  body: formData,
+});
+
+if (response.ok) {
+  const data = await response.json();
+  alert(data.message);
+} else {
+  alert('Failed to save sponsorship. Please try again.');
+}
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to save sponsorship. Please try again.');
+  }
+});
+  </script>
+</body>
+</html>

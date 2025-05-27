@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Playwrite+IN&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Playwrite+IN&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@200..700&display=swap');
+
+body {
+    background-color: black;
+}
+
+#navi {
+    background-color: black;
+    height: 7vh;
+    width: 100vw;
+    opacity: 0.9;
+    display: grid;
+    grid-template-columns: 5vw 5vw 37vw 9vw 6.5vw 10vw 5px 8.5vw 8vw 19vw;
+    grid-template-rows: 100px;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+
+}
+
+.logo_image {
+    height: 7vh;
+    width: 7vh;
+    padding: 0;
+}
+
+#home_icon {
+    height: 3.5vh;
+    width: 3.5vw;
+    margin-top: 16px;
+    margin-left: 10px;
+    transition: transform .15s ease-in 0s;
+
+
+}
+
+#search_icon {
+    height: 3vh;
+    width: 4vh;
+    border-radius: 90%;
+}
+
+#search {
+    background-color: rgb(34, 33, 33);
+    height: 5vh;
+    width: 30vw;
+    margin-top: 9px;
+    display: grid;
+    border-radius: 90px;
+    grid-template-columns: 5px 4vw 20vw 7vw 100px;
+    grid-template-rows: 10px 6vw 10vw 100px 100px;
+}
+
+#browse_icon {
+    height: 3vh;
+    width: 3vh;
+    margin-top: 8px;
+    margin-left: 20px;
+
+
+
+}
+
+#what_text {
+    /* font-family: "Playwrite IN", serif; */
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: antiquewhite;
+    font-size: 20px;
+    grid-row: 2/3;
+    grid-column: 3/4;
+
+}
+
+.search_icon {
+    grid-row: 2/3;
+    margin-left: 5px;
+
+}
+
+.browse_icon {
+    grid-row: 1/2;
+    grid-column: 4/5;
+
+}
+
+#premium {
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: antiquewhite;
+    margin-top: 9px;
+
+}
+
+#sport {
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: antiquewhite;
+    margin-top: 9px;
+}
+
+#download {
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: antiquewhite;
+    margin-top: 9px;
+}
+
+#hori {
+    background-color: rgb(255, 255, 255);
+    height: 7vh;
+    width: 3px;
+    grid-column: 7/8;
+
+}
+
+#install {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    color: antiquewhite;
+    margin-left: 15px;
+    margin-top: 12px;
+
+}
+
+#login {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    color: antiquewhite;
+    margin-left: 25px;
+    margin-top: 12px;
+
+}
+
+#signup {
+    height: 5vh;
+    width: 9vw;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    margin-top: 7px;
+}
+
+aside {
+    background-color: rgb(0, 0, 0);
+    height: 88vh;
+    width: 25vw;
+
+    display: grid;
+    position: sticky;
+    top: 7vh;
+
+
+}
+
+#aside_main {
+    background-color: rgb(39, 37, 37);
+    height: 87.5vh;
+    width: 25vw;
+    border-radius: 30px;
+    position: relative;
+    top: -8px;
+    left: -8px;
+    display: grid;
+    grid-template-columns: 20px 20vw;
+    grid-template-rows: 15px 6vh 5vh 22vh 20vh 7vh 18vh 5vh;
+    position: sticky;
+    top: 7vh;
+    border: 10px solid rgb(0, 0, 0);
+}
+
+#library {
+    height: 5vh;
+    width: 22vw;
+    border-radius: 30px;
+    background-color: aliceblue;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 10px 49px 170px 40px;
+    grid-template-rows: 6px;
+}
+
+#libray_logo {
+    height: 3.5vh;
+    width: 3.5vw;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin-top: 1px;
+    transition: transform 0.1s ease-out 0s;
+
+
+}
+
+#library_text {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+#plus {
+    height: 3vh;
+    width: 3vw;
+    grid-column: 4/5;
+    margin-top: 10px;
+
+}
+
+#playlist {
+    height: 17vh;
+    width: 22vw;
+    grid-column: 2/3;
+    grid-row: 4/5;
+    display: grid;
+    border-radius: 15px;
+    background-color: rgb(27, 27, 27);
+    grid-template-rows: 45px 20px 25px 50px;
+
+}
+
+#first {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 25px;
+    color: rgb(240, 240, 240);
+
+
+}
+
+#easy_playlist {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+
+}
+
+#create_playlist {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    height: 4.5vh;
+    width: 13vw;
+    border-radius: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 4/5;
+    margin-left: 60px;
+}
+
+#podcast {
+    height: 17vh;
+    width: 22vw;
+    grid-column: 2/3;
+    grid-row: 5/6;
+    display: grid;
+    border-radius: 15px;
+    background-color: rgb(27, 27, 27);
+    grid-template-rows: 45px 20px 25px 50px;
+}
+
+#follow_podcast {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
+
+#update_podcast {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+#browse_podcast {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 22px;
+    height: 4.5vh;
+    width: 13vw;
+    border-radius: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 4/5;
+    margin-left: 60px;
+}
+
+#ethics {
+    height: 20vh;
+    width: 22vw;
+    /* border: 3px solid white; */
+    grid-row: 7/8;
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 35px 35px 35px;
+}
+
+.ethics_text {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+
+
+}
+
+.english_style {
+    grid-row: 8/9;
+    grid-column: 2/3;
+    height: 3vh;
+    width: 8vw;
+    border: 2.5px solid white;
+    border-radius: 90px;
+    display: grid;
+    grid-template-columns: 10px 60px 20px;
+    transition: border 0.2s ease-in-out 0s;
+
+}
+
+
+#english_text {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: aliceblue;
+    grid-column: 2/3;
+}
+
+#browse {
+    height: 2.5vh;
+    width: 2.5vh;
+    grid-column: 3/4;
+    margin-top: 0.8px;
+}
+
+main {
+    background-color: rgb(34, 33, 33);
+    height: 160vh;
+    width: 71vw;
+    position: relative;
+    top: -781px;
+    left: 343px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 32vh 32vh 32vh 32vh;
+
+}
+
+.collection {
+    height: 30vh;
+    width: 70vw;
+    display: grid;
+    grid-template-columns: 20px 300px 500px 100px;
+    grid-template-rows: 10px 40px 230px;
+}
+
+.text_in_head {
+    font-family: "DM Serif Text", serif;
+    font-weight: 500;
+    font-style: normal;
+    color: aliceblue;
+    font-size: 25px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.text_in_show {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(236, 244, 250);
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+.album {
+    height: 25vh;
+    width: 98vh;
+    grid-row: 3/4;
+    grid-column: 2/5;
+    margin-top: 5px;
+    display: flex;
+}
+
+.song {
+    width: 20vw;
+    display: grid;
+    grid-template-rows: 10px 150px 30px 20px;
+}
+
+.text_heading {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(219, 213, 213);
+    font-size: 20px;
+    grid-row: 3/4;
+}
+
+.text_small {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(163, 157, 157);
+    grid-row: 4/5;
+}
+
+.image_artist {
+    height: 17.5vh;
+    width: 10vw;
+    border-radius: 30px;
+
+}
+
+.wasif {
+    height: 17vh;
+    width: 17vh;
+    border-radius: 30px;
+}
+
+/* classes and ids for java script */
+
+
+.logo_image_hover {
+    transform: scale(1.15);
+    transition: transform 0.5s ease 0s;
+}
+
+.home_transition {
+    transform: scale(1.4);
+    transition: transform 0.2s ease-in-out 0s;
+}
+
+.search_hower {
+    border: 1px solid white;
+    transition: border 0.4s ease-in-out 0s;
+
+
+}
+
+.type_anything {
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: antiquewhite;
+    font-size: 20px;
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+
+.transition_all {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out 0s;
+
+}
+
+.library_logo_transition {
+    transform: scale(1.4);
+    transition: transform 0.2s ease-in-out 0s;
+}
+
+.library_text_transition {
+    color: rgb(209, 209, 209);
+    transition: color 0.2s ease-in-out 0s;
+}
+
+.english_transition {
+    grid-row: 8/9;
+    grid-column: 2/3;
+    height: 3vh;
+    width: 8vw;
+    border-radius: 90px;
+    display: grid;
+    grid-template-columns: 10px 60px 20px;
+    border: 3px solid white;
+    transition: border 0.2s ease-in-out 0s;
+}
+
+.block_transition {
+    background-color: rgb(101, 105, 107);
+    border-radius: 30px;
+    height: 27vh;
+    width: 13vw;
+    position: relative;
+    top: -220px;
+    left: -20px;
+    opacity: 0.23;
+
+
+
+}
+
+.image_tri {
+    height: 40px;
+    width: 40px;
+    transform: scale(0.9);
+    position: relative;
+    left: 10px;
+    animation: triangle_gi 0.4s cubic-bezier(0.11, 0.52, 0.17, 1.03) 0s 1 forwards ;
+
+}
+
+@keyframes triangle_gi {
+    0% {
+        top: 200px;
+
+    }
+
+    20% {
+        
+    }
+
+    40% {}
+
+    60% {}
+
+    80% {}
+
+    100% {
+        top: 100px;
+    }
+
+}

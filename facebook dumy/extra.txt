@@ -1,0 +1,21 @@
+// Route to add a new sponsor
+app.post('/api/sponser/add', async (req, res) => {
+  try {
+    const { name, description, link } = req.body;
+
+    // Create a new sponsor document
+    const newsponser = new sponser({
+      name,
+      description,
+      link,
+    });
+
+    // Save the document to the database
+    await newsponser.save();
+
+    res.status(201).json({ message: 'Sponsor added successfully!' });
+  } catch (error) {
+    console.error('Error adding sponsor:', error);
+    res.status(500).json({ message: 'Failed to add sponsor' });
+  }
+});
