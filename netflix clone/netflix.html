@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Pakistan - Watch TV Shows Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+        }
+
+        #logo {
+            height: 45px;
+            width: auto;
+        }
+
+        #sign_in_button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #sign_in_button:hover {
+            background-color: #f40612;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%), 
+                        linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 50%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/PK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .email-signup {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .email-signup input {
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #8c8c8c;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .email-signup button {
+            padding: 15px;
+            font-size: 1.5rem;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .email-signup button:hover {
+            background-color: #f40612;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 20px;
+            border-top: 8px solid #222;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Trending Now Section */
+        .trending {
+            padding: 60px 20px;
+        }
+
+        .trending-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            max-width: 1100px;
+            margin: 0 auto 30px;
+        }
+
+        .trending-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-controls select {
+            padding: 8px 15px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            border: 1px solid #8c8c8c;
+            border-radius: 4px;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .movie-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Reasons Section */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background-color: rgba(45,45,45,0.7);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e50914;
+        }
+
+        .reason-card i {
+            font-size: 3rem;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            background-color: rgba(45,45,45,0.7);
+            padding: 20px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(65,65,65,0.7);
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background-color: rgba(45,45,45,0.7);
+            border-radius: 0 0 4px 4px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 60px 20px;
+            border-top: 8px solid #222;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            color: #8c8c8c;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            color: #8c8c8c;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #e50914;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navigation {
+                padding: 15px 20px;
+            }
+            
+            #logo {
+                height: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .email-signup {
+                flex-direction: column;
+            }
+            
+            .email-signup input, 
+            .email-signup button {
+                width: 100%;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section p {
+                font-size: 1rem;
+            }
+            
+            .trending-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .filter-controls {
+                width: 100%;
+                flex-direction: column;
+            }
+            
+            .movie-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .email-signup {
+                flex-direction: row;
+            }
+            
+            .email-signup input {
+                flex: 2;
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+            
+            .email-signup button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+        <button id="sign_in_button">Sign In</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Unlimited movies, TV shows, and more</h1>
+        <p>Starts at Rs 250. Cancel anytime.</p>
+        <div class="email-signup">
+            <input type="email" placeholder="Email address">
+            <button>Get Started <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Trending Now Section -->
+    <section class="section trending">
+        <div class="trending-header">
+            <h2>Trending Now</h2>
+            <div class="filter-controls">
+                <select name="country" id="country">
+                    <option value="pakistan">Pakistan</option>
+                    <option value="global">Global</option>
+                </select>
+                <select name="type" id="type">
+                    <option value="shows">TV Shows</option>
+                    <option value="movies">Movies</option>
+                </select>
+            </div>
+        </div>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BZTAzODc1ZjUtNGQwZS00YTc2LTliNzQtMDdlNzllNmU5Yzk4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Damsel">
+            </div>
+            <div class="movie-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjAzMTI1MjMyN15BMl5BanBnXkFtZTgwNzU5MTE2NjM@._V1_.jpg" alt="The Bird Box">
+            </div>
+            <div class="movie-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY1NDYxNjE1Ml5BMl5BanBnXkFtZTgwMTA1MTQwNDE@._V1_.jpg" alt="Lost in Space">
+            </div>
+            <div class="movie-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTg0NTIzMjQ1NV5BMl5BanBnXkFtZTgwMDc0MjQ0ODE@._V1_.jpg" alt="Journey to the Center of the Earth">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons to Join Section -->
+    <section class="section">
+        <div class="section-container">
+            <h2>More Reasons To Join</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Enjoy on your TV</h3>
+                    <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                </div>
+                <div class="reason-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Download your shows</h3>
+                    <p>Save your favorites easily and always have something to watch.</p>
+                </div>
+                <div class="reason-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Watch everywhere</h3>
+                    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                </div>
+                <div class="reason-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Create profiles for kids</h3>
+                    <p>Send kids on adventures with their favorite characters in a space made just for them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="section-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is Netflix?
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I cancel?
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees - start or stop your account anytime.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How much does it cost?
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from Rs250 to Rs1,100 a month. No extra costs, no contracts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Netflix good for kids?
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>FAQ</h3>
+                <ul>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Speed Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Help Center</h3>
+                <ul>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                    <li><a href="#">Legal Notices</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="#">Ways to Watch</a></li>
+                    <li><a href="#">Corporate Information</a></li>
+                    <li><a href="#">Only on Netflix</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Media Center</h3>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script> -->
+</body>
+
+</html>
